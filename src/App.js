@@ -10,10 +10,11 @@ import SignInAndSignUp from './pages/SignInAndSignUp/SignInAndSignUp';
 import Checkout from './pages/Checkout/Checkout'
 
 import Header from './components/Header/Header';
-import { auth, createUserProfileDocument } from './firebase/firebaseUtils';
+import { auth, createUserProfileDocument} from './firebase/firebaseUtils';
 import { setCurrentUser } from './redux/user/user.actions'
 import { selectCurrentUser } from './redux/user/user.selectors'
 import { createStructuredSelector } from 'reselect'
+
 class App extends Component {
   unsubscribeFromAuth = null;
   
@@ -30,9 +31,8 @@ class App extends Component {
               ...snapShot.data(),
             })
         })
-      } else {
-        setCurrentUser(userAuth)
-      }
+      } 
+      setCurrentUser(userAuth)
     });
   }
 
